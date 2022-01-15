@@ -10,6 +10,7 @@ function App() {
   const [contacts, setContacts] = useState(() => {
     return JSON.parse(window.localStorage.getItem('contacts')) ?? [];
   });
+
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
@@ -32,7 +33,7 @@ function App() {
       number,
     };
 
-    setContacts(prevContacts => [newContact, ...prevContacts]);
+    setContacts(s => [newContact, ...s]);
   };
   const changeFilter = ({ target }) => {
     setFilter(target.value);
